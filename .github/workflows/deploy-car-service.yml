@@ -2,7 +2,7 @@ name: Deploy car-service (Docker Hub + App Service)
 
 on:
   push:
-    branches: [ "main", "dev" ]
+    branches: "deploy"
     paths:
       - "src/**"
       - "build.gradle"
