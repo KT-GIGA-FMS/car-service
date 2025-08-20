@@ -21,9 +21,6 @@ public class CarController {
     @PostMapping
     public ResponseEntity<CarResponse> registerCar(@Valid @RequestBody RegisterCarRequest request) {
         log.info("차량 등록 API 호출: {}", request);
-        
-        CarResponse response = carService.registerCar(request);
-        
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+        return ResponseEntity.status(HttpStatus.CREATED).body(carService.registerCar(request));
     }
 }
