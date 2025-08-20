@@ -2,7 +2,7 @@ name: Deploy car-service (Docker Hub + App Service)
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "dev" ]
     paths:
       - "car-service/**"
       - ".github/workflows/deploy-car-service.yml"
