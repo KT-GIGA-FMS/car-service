@@ -22,8 +22,6 @@ CREATE TABLE car (
     car_type VARCHAR(20),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    
-    CONSTRAINT fk_car_car_model FOREIGN KEY (car_model_id) REFERENCES car_model(id)
 );
 
 -- 인덱스 생성
