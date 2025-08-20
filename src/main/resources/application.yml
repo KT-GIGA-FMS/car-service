@@ -29,5 +29,16 @@ logging:
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
     com.kt_giga_fms.car: DEBUG
 
+# Swagger UI 설정
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /api-docs
+  default-produces-media-type: application/json
+  default-consumes-media-type: application/json
+
 server:
   port: 8080
