@@ -4,12 +4,13 @@ on:
   push:
     branches: [ "main", "dev" ]
     paths:
-      - "car-service/**"
+      - "src/**"
+      - "build.gradle"
+      - "Dockerfile"
       - ".github/workflows/deploy-car-service.yml"
   workflow_dispatch:
 
 env:
-  APP_PATH: ./car-service
   IMAGE_NAME: yourdhuser/car-service   # <-- Docker Hub 리포지토리
   RESOURCE_GROUP: ${{ secrets.AZURE_RESOURCE_GROUP }}
 
@@ -36,7 +37,7 @@ jobs:
 
       - name: Build & Push (Docker Hub)
         run: |
-          docker build -t $IMAGE_NAME:${{ steps.vars.outputs.TAG }} $APP_PATH
+          docker build -t $IMAGE_NAME:${{ steps.vars.outputs.TAG }} .
           docker tag  $IMAGE_NAME:${{ steps.vars.outputs.TAG }} $IMAGE_NAME:latest
           docker push $IMAGE_NAME:${{ steps.vars.outputs.TAG }}
           docker push $IMAGE_NAME:latest
